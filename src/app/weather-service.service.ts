@@ -7,7 +7,7 @@ import { WeatherInfo } from "../app/models/weather-info.model";
   providedIn: "root"
 })
 export class WeatherServiceService {
-  API_KEY = "0cb19ff372d553d93a274679f779e70b";
+  private API_KEY = "0cb19ff372d553d93a274679f779e70b";
 
   constructor(private http: HttpClient) {}
 
