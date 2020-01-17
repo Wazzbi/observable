@@ -2,4 +2,23 @@
   <div class="show" *ngFor="let city of destinations">
     <app-card [destination]="city"></app-card>
   </div>
+
+  <div class="search">
+    <input
+      type="text"
+      placeholder="Search your destination..."
+      (keydown)="getDestination($event)"
+      id="city"
+    />
+  </div>
+
+  <div class="choices">
+    <a href="#" (click)="getChoice('Berlin')">Berlin</a>
+    &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#" (click)="getChoice('London')">London</a>
+    &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#" (click)="getChoice('Paris')">Paris</a>
+    &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#" (click)="getChoice('Prague')">Prague</a>
+  </div>
 </div>

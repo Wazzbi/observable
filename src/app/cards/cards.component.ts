@@ -9,7 +9,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./cards.component.scss"]
 })
 export class CardsComponent implements OnInit {
-  _destination: string = "Prague";
+  _destination: string = "";
   destination = new WeatherInfo();
 
   _destinations: string[] = ["Paris", "London", "Berlin"];
@@ -20,14 +20,20 @@ export class CardsComponent implements OnInit {
   constructor(private weatherService: WeatherServiceService) {}
 
   ngOnInit() {
-    this.getDestination();
     this.getDestinations();
   }
 
-  getDestination(): void {
-    this.weatherService.getWeather(this._destination).subscribe(res => {
-      this.destination = res;
-    });
+  getDestination(event: any): void {
+    if (event.keyCode === 13) {
+      let city: string = (<HTMLInputElement>document.getElementById("city"))
+        .value;
+      this.destinations = [];
+      this.weatherService.getWeather(city).subscribe(res => {
+        res.main.temp = Math.round(res.main.temp - 273.15);
+        this.destinations.push(res);
+      });
+      (<HTMLInputElement>document.getElementById("city")).value = "";
+    }
   }
 
   getDestinations(): void {
@@ -36,6 +42,14 @@ export class CardsComponent implements OnInit {
         res.main.temp = Math.round(res.main.temp - 273.15);
         this.destinations.push(res);
       });
+    });
+  }
+
+  getChoice(city: string) {
+    this.destinations = [];
+    this.weatherService.getWeather(city).subscribe(res => {
+      res.main.temp = Math.round(res.main.temp - 273.15);
+      this.destinations.push(res);
     });
   }
 
