@@ -1,46 +1,12 @@
 .container {
   text-align: center;
-
-  img {
-    width: 100%;
-    box-shadow: inset 0px -200px 39px -147px rgba(255, 255, 255, 1);
-  }
+  height: 85vh;
+  background-image: url(../../assets/background/background.jpg);
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
 }
 
 .show {
   display: inline-block;
-}
-
-.card {
-  margin-top: 40px;
-  margin-right: 40px;
-  padding: 0px;
-  height: 410px;
-  width: 250px;
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.15);
-  transition: all 0.5s ease-in-out;
-}
-
-.card:hover {
-  transform: scale(1.1);
-}
-
-mat-card {
-  border-radius: 10px;
-}
-
-.testAlign {
-  text-align: left;
-  padding-left: 0px;
-  padding-top: 10px;
-  background-color: #5e5e5e;
-  border-radius: 10px 10px 0 0;
-
-  mat-card-title {
-    color: white;
-  }
-
-  mat-card-subtitle {
-    color: white;
-  }
 }
